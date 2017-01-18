@@ -4,3 +4,8 @@ export function addNewTask(newTask) {
     newTask,
   }
 }
+export function loadTask(){
+  return{
+    type: "LOAD_TASK",
+  }
+}

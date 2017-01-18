@@ -8,7 +8,7 @@ import {
   ListView
 } from 'react-native';
 import { connect } from 'react-redux'
-import {addNewTask} from '../redux/todo/actions'
+import {addNewTask,loadTask} from '../redux/todo/actions'
 import {
   Button, FormLabel, FormInput
 } from 'react-native-elements'
@@ -20,6 +20,9 @@ class TodoScreen extends Component {
       dataTask:"",
       dataSource:ds.cloneWithRows(this.props.todo.listTodo),
     }
+  }
+  componentWillMount(){
+    this.props.loadTask()
   }
   componentWillReceiveProps({todo}){
     this.setState({
@@ -40,7 +43,7 @@ class TodoScreen extends Component {
     return(
       <View>
         <Text>
-          {data}
+          {data.title}
         </Text>
       </View>
     )
@@ -87,7 +90,8 @@ const mapStateToProps = (state)=>{
 }
 const mapDispatchToProps = (dispatch)=>{
   return{
-    addNewTask:(newTask)=>dispatch(addNewTask(newTask))
+    addNewTask:(newTask)=>dispatch(addNewTask(newTask)),
+    loadTask:()=>dispatch(loadTask())
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(TodoScreen)

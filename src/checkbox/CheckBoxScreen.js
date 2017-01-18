@@ -34,8 +34,8 @@ export default class CheckBoxScreen extends Component {
             component={TouchableWithoutFeedback}
             onPress={()=>this._onPressCheck(index)}
             checked={value}
-            checkedIcon='dot-circle-o'
-            uncheckedIcon='circle-o'
+            checkedIcon='check-square'
+            uncheckedIcon='check-square'
           />
         ))}
 

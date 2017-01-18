@@ -1,6 +1,11 @@
 const initialState={
   listTodo:[
-    "Go home",
+    {
+      completed:false,
+      id:1,
+      title: "Working lokiJS",
+      
+    }
   ],
   isFetching:false,
 }
